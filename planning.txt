@@ -23,3 +23,66 @@ function turn(tc) {
         
     }
 }
+
+
+I could just plan out every possible win condition for each space
+
+ex: 
+
+__|__|__
+__|__|__
+  |  |
+
+  Eight = [6, 7, 8], [0, 4, 8], [2, 5, 8]
+
+if (turnCouinter >- 5) {
+
+    switch (playerSelection) {
+        case: '1':
+            // blahblah
+        ...
+        case: '8':
+            matchEnd = checkWin(playerSelection);
+
+    }
+}
+
+
+checkWin function:
+
+const arr0 = 0;
+const arr1 = 1;
+const arr2 = 2;
+const arr3 = 3;
+
+// min 2 win conditons, max is 4. rules below
+
+const zero = [0, 1, 2], [0, 4, 8], [0, 3, 6];
+const one = [0, 1, 2], [1, 4, 7];
+const two = [0, 1, 2], [2, 5, 8], [2, 4, 6];
+const three = [0, 3, 6], [3, 4, 5];
+const four = [0, 4, 8], [1, 4, 7], [2, 4, 6], [3, 4, 5];
+const five = [2, 5, 8], [3, 4, 5];
+const six = [6, 7, 8], [2, 4, 6], [0, 3, 6];
+const seven = [6, 7, 8], [1, 4, 7];
+const eight = [6, 7, 8], [0, 4, 8], [2, 5, 8];
+
+/*
+
+let x_or_o = turn % 2 != 0 : "X" : "O";
+
+__|__|__
+__|__|__
+  |  |
+
+*/
+
+
+for (let i = 0; i < 3; i++) {
+
+}
+
+  - checkWin function should return bool to end game or not
+  - winner is determined on what turn number
+  - odd number turn ALWAYS x, evens ALWAYS O
+    - this logic will be assumed for *every* function

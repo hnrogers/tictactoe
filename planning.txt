@@ -1,0 +1,25 @@
+match logic
+
+- take turn
+- check win
+
+player 1 odd #s
+player 2 even #s
+
+have a specific turn function we call each turn, 
+iterate turn number at the end of a successful function
+
+function match(player1, player2, gameboard) {
+    let matchEnd = false;
+    let turnCounter = 1;
+
+    while (matchEnd === false) {
+
+    }
+}
+
+function turn(tc) {
+    if (tc % 2 !== 0) {
+        
+    }
+}

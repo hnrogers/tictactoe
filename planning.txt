@@ -57,15 +57,15 @@ const arr3 = 3;
 
 // min 2 win conditons, max is 4. rules below
 
-const zero = [0, 1, 2], [0, 4, 8], [0, 3, 6];
-const one = [0, 1, 2], [1, 4, 7];
-const two = [0, 1, 2], [2, 5, 8], [2, 4, 6];
-const three = [0, 3, 6], [3, 4, 5];
-const four = [0, 4, 8], [1, 4, 7], [2, 4, 6], [3, 4, 5];
-const five = [2, 5, 8], [3, 4, 5];
-const six = [6, 7, 8], [2, 4, 6], [0, 3, 6];
-const seven = [6, 7, 8], [1, 4, 7];
-const eight = [6, 7, 8], [0, 4, 8], [2, 5, 8];
+    const zero = [[0, 1, 2], [0, 4, 8], [0, 3, 6]];
+    const one = [[0, 1, 2], [1, 4, 7]];
+    const two = [[0, 1, 2], [2, 5, 8], [2, 4, 6]];
+    const three = [[0, 3, 6], [3, 4, 5]];
+    const four = [[0, 4, 8], [1, 4, 7], [2, 4, 6], [3, 4, 5]];
+    const five = [[2, 5, 8], [3, 4, 5]];
+    const six = [[6, 7, 8], [2, 4, 6], [0, 3, 6]];
+    const seven = [[6, 7, 8], [1, 4, 7]];
+    const eight = [[6, 7, 8], [0, 4, 8], [2, 5, 8]];
 
 /*
 
@@ -86,3 +86,27 @@ for (let i = 0; i < 3; i++) {
   - winner is determined on what turn number
   - odd number turn ALWAYS x, evens ALWAYS O
     - this logic will be assumed for *every* function
+
+
+
+/*
+            if (turnCounter >= 5){      // step 4
+
+                if (ps === 0 || ps === 2 || ps === 6 || ps === 8) {
+
+                    for (let i = 0; i < 3; i++) {
+            
+                    }
+            
+                }
+            
+                else if (ps === 1 || ps === 3 || ps === 5 || ps === 7) {
+            
+                }
+            
+                else {
+            
+                }
+
+            }
+*/

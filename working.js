@@ -21,58 +21,68 @@ function createPlayer(name, password, pronouns) {
 
 const gameboard = (function() {
     let board = ["", "", "", "", "", "", "", "", ""];
-    
-    const placeX = function(location) {
-        
-        if (board[location] === "") {
-            board[location] = "X";
-            //
-
-
-        }
-    }
-    
-    const placeO = function(location) {
-        board[location] = "O";
-    }
-
-    const reset = board.forEach((data, index) => board[index] = "");
-
-    return { placeX, placeO, reset};
+    //const reset = board.forEach((data, index) => board[index] = "");
+    return { board };
 })();
 
-// create match factory function
-
-function createMatch(player1, player2) {
-    // game logic - make move, check space, check 
-    // victory, award victory, accept players
-}
 
 function match(player1, player2, gameboard) {
     let matchEnd = false;
     let turnCounter = 1;
-    const moves = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    let playerSelection = "";
 
+    const possibleMoves = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
     while (matchEnd === false) {
-        let playerSelection = prompt("Make selection");
+        console.log(turnCounter);
+        playerSelection = getInput(possibleMoves);
+        possibleMoves[playerSelection] = "";
+        console.log("/n");
+        turnCounter++;
+
+        if (turnCounter >= 4) {
+            matchEnd = true;
+        }
         
-        if (moves.includes(Number(playerSelection))) {
-            gameboard[Number(playerSelection)] = turn % 2 != 0 ? "X" : "O";
-            moves[Number(playerSelection)] = "";
+
+
+
+
+        /*
+        if (possibleMoves.includes(playerSelection)) {      // step 2
+            gameboard[playerSelection] = turn % 2 != 0 ? "X" : "O";     // step 3
+            possibleMoves[playerSelection] = "";
+
+
             turnCounter++;
-            // set X/O on gameboard, eliminate space from possible moves, increment turnCunter
 
-            if (turnCounter >= 5){
-
-                // check on last move, don't spill over row
-
+            if (turnCounter >= 6) {
+                matchEnd = true;
             }
-            // check for win starting turn 3
-        } 
+        }
+        
+        else {
+            continue;
+        }
+        */
 
-
-
+        /*
+        1 - get playerSelection
+        2 - check if playerSelection is available in possibleMoves
+        3 - set gameboard[playerSelection] = X or O depending on the turn
+        4 - IF turn >= 5, check win, matchEnd = checkWin();
+        5 - IF there's no win, increment turnCounter
+        */
 
     }
 }
+
+function getInput(possibleMoves) {
+    console.log("Available moves:")
+    console.log(possibleMoves);
+    const prompt = require('prompt-sync')();
+    let ps = prompt("Select a space");
+    return ps;
+}
+
+match("a", "b", gameboard.board);

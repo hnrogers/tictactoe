@@ -21,8 +21,10 @@ function createPlayer(name, password, pronouns) {
 
 const gameboard = (function() {
     let board = ["", "", "", "", "", "", "", "", ""];
-    //const reset = board.forEach((data, index) => board[index] = "");
-    return { board };
+    function reset() {
+        board.forEach((data, index) => board[index] = "");
+    } 
+    return { board, reset };
 })();
 
 
@@ -34,47 +36,29 @@ function match(player1, player2, gameboard) {
     const possibleMoves = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
     while (matchEnd === false) {
-        console.log(turnCounter);
-        playerSelection = getInput(possibleMoves);
-        possibleMoves[playerSelection] = "";
-        console.log("/n");
-        turnCounter++;
-
-        if (turnCounter >= 4) {
-            matchEnd = true;
-        }
         
+        playerSelection = Number(getInput(possibleMoves));
 
-
-
-
-        /*
-        if (possibleMoves.includes(playerSelection)) {      // step 2
-            gameboard[playerSelection] = turn % 2 != 0 ? "X" : "O";     // step 3
+        if (checkAvailability(possibleMoves, playerSelection) === true) {
+            gameboard.board[playerSelection] = turn % 2 != 0 ? "X" : "O";
             possibleMoves[playerSelection] = "";
-
-
-            turnCounter++;
-
-            if (turnCounter >= 6) {
-                matchEnd = true;
-            }
         }
-        
+
         else {
             continue;
         }
-        */
+        
+        if (turnCounter >= 5) {
+            matchEnd = checkWin(gameboard.board);
 
-        /*
-        1 - get playerSelection
-        2 - check if playerSelection is available in possibleMoves
-        3 - set gameboard[playerSelection] = X or O depending on the turn
-        4 - IF turn >= 5, check win, matchEnd = checkWin();
-        5 - IF there's no win, increment turnCounter
-        */
+            // logic for awarding player win/loss/draw
+            // add logic for draw
+        }
 
+        turnCounter++;
     }
+
+    gameboard.reset();
 }
 
 function getInput(possibleMoves) {
@@ -85,4 +69,18 @@ function getInput(possibleMoves) {
     return ps;
 }
 
-match("a", "b", gameboard.board);
+function checkAvailability(pm, ps) {
+    if (pm[ps] !== "") {
+        return true;
+    }
+
+    return false;
+}
+
+function checkWin(gb) {
+    // return true;
+
+    // return false;
+}
+
+match("a", "b", gameboard);

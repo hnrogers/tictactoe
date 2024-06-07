@@ -28,7 +28,22 @@ const gameboard = (function() {
 })();
 
 
-function match(player1, player2, gameboard) {
+const logic = (function() {
+    const zero = [[0, 1, 2], [0, 4, 8], [0, 3, 6]];
+    const one = [[0, 1, 2], [1, 4, 7]];
+    const two = [[0, 1, 2], [2, 5, 8], [2, 4, 6]];
+    const three = [[0, 3, 6], [3, 4, 5]];
+    const four = [[0, 4, 8], [1, 4, 7], [2, 4, 6], [3, 4, 5]];
+    const five = [[2, 5, 8], [3, 4, 5]];
+    const six = [[6, 7, 8], [2, 4, 6], [0, 3, 6]];
+    const seven = [[6, 7, 8], [1, 4, 7]];
+    const eight = [[6, 7, 8], [0, 4, 8], [2, 5, 8]];
+    return { zero, one, two, three, four, five, six, seven, eight };
+})();
+
+
+
+function match(player1, player2, gameboard, logic) {
     let matchEnd = false;
     let turnCounter = 1;
     let playerSelection = "";
@@ -49,15 +64,40 @@ function match(player1, player2, gameboard) {
         }
         
         if (turnCounter >= 5) {
-            matchEnd = checkWin(gameboard.board);
 
-            // logic for awarding player win/loss/draw
-            // add logic for draw
+            switch (playerSelection) {
+                case 0:
+                    matchEnd = checkWin(gameboard, logic.zero, turnCounter);
+                    break;
+                case 1:
+                    matchEnd = checkWin(gameboard, logic.one, turnCounter);
+                    break;
+                case 2:
+                    matchEnd = checkWin(gameboard, logic.two, turnCounter);
+                    break;
+                case 3:
+                    matchEnd = checkWin(gameboard, logic.three, turnCounter);
+                    break;
+                case 4:
+                    matchEnd = checkWin(gameboard, logic.four, turnCounter);
+                    break;
+                case 5:
+                    matchEnd = checkWin(gameboard, logic.five, turnCounter);
+                    break;
+                case 6:
+                    matchEnd = checkWin(gameboard, logic.six, turnCounter);
+                    break;
+                case 7:
+                    matchEnd = checkWin(gameboard, logic.seven, turnCounter);
+                    break;
+                case 8:
+                    matchEnd = checkWin(gameboard, logic.eight, turnCounter);
+                    break;
+            }
         }
-
         turnCounter++;
     }
-
+    // need to write function to award win/loss/draw based on turnCounter
     gameboard.reset();
 }
 
@@ -73,14 +113,21 @@ function checkAvailability(pm, ps) {
     if (pm[ps] !== "") {
         return true;
     }
-
     return false;
 }
 
-function checkWin(gb) {
-    // return true;
+function checkWin(gb, l, tc) {
+    letter = tc % 2 !== 0 ? "X" : "O"; 
 
-    // return false;
+    for (let i = 0; i < l.length; i++) {
+
+        if (gb.board[l[i][0]] === letter && 
+            gb.board[l[i][1]] === letter && 
+            gb.board[l[i][2]] === letter) {
+                return true;    // return winner!
+            }
+    }
+    return false;   // the game continues
 }
 
 match("a", "b", gameboard);

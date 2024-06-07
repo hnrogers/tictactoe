@@ -88,25 +88,12 @@ for (let i = 0; i < 3; i++) {
     - this logic will be assumed for *every* function
 
 
+// win logic function
 
-/*
-            if (turnCounter >= 5){      // step 4
+- i think a switch statement taking 
+    - playerSelection
+    - logic.[playerSelection]
 
-                if (ps === 0 || ps === 2 || ps === 6 || ps === 8) {
-
-                    for (let i = 0; i < 3; i++) {
-            
-                    }
-            
-                }
-            
-                else if (ps === 1 || ps === 3 || ps === 5 || ps === 7) {
-            
-                }
-            
-                else {
-            
-                }
-
-            }
-*/
+the loop can be based off how many subarrays there are
+    - check all 3 spots each loop since we know it's 3
+i think this will work and i'll try after lunch

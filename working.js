@@ -55,8 +55,8 @@ function match(player1, player2, gameboard, logic) {
         playerSelection = Number(getInput(possibleMoves));
 
         if (checkAvailability(possibleMoves, playerSelection) === true) {
-            gameboard.board[playerSelection] = turn % 2 != 0 ? "X" : "O";
-            possibleMoves[playerSelection] = "";
+            gameboard.board[playerSelection] = turnCounter % 2 != 0 ? "X" : "O";
+            possibleMoves[playerSelection] = turnCounter % 2 != 0 ? "X" : "O";
         }
 
         else {
@@ -96,6 +96,11 @@ function match(player1, player2, gameboard, logic) {
             }
         }
         turnCounter++;
+
+        if (turnCounter === 10 && matchEnd === false) {
+            matchEnd = true;
+            console.log("DRAW");
+        }
     }
     // need to write function to award win/loss/draw based on turnCounter
     gameboard.reset();
@@ -120,14 +125,18 @@ function checkWin(gb, l, tc) {
     letter = tc % 2 !== 0 ? "X" : "O"; 
 
     for (let i = 0; i < l.length; i++) {
-
         if (gb.board[l[i][0]] === letter && 
             gb.board[l[i][1]] === letter && 
             gb.board[l[i][2]] === letter) {
+                console.log(letter === "X" ? "Player 1 Wins" : "Player 2 Wins");
                 return true;    // return winner!
             }
     }
     return false;   // the game continues
 }
 
-match("a", "b", gameboard);
+function awarding(){
+    // stuff
+}
+
+match("a", "b", gameboard, logic);

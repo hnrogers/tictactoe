@@ -1,33 +1,20 @@
-function createPlayer(name, password, pronouns) {
-    let wins = 0;
-    let losses = 0;
-    let ties = 0;
-    let scorecard = [wins, losses, ties];
+document.getElementById("thetable").addEventListener("click", function(e) {
+    let cell = e.target.closest('td');
+    let row = cell.parentElement;
+    let arrElement = "";
 
-    const gameWin = () => scorecard[0]++;
-    const gameLoss = () => scorecard[1]++;
-    const gameTie = () => scorecard[2]++;
-    
-    const totalWins = () => scorecard[0];
-    const totalLosses = () => scorecard[1]; 
-    const totalTies = () => scorecard[2]; 
+    switch (row.rowIndex) {
+        case 0:
+            arrElement = cell.cellIndex;
+            break;
+        case 1:
+            arrElement = cell.cellIndex + 3;
+            break;
+        case 2:
+            arrElement = cell.cellIndex + 6;
+            break;
+    }
 
-    return { name, password, pronouns, 
-            gameWin, gameLoss, gameTie, 
-            totalWins, totalLosses, totalTies };
-}
-
-const pA = createPlayer("a", "aaa", "she/her");
-const pB = createPlayer("b", "bbb", "she/her");
-const pC = createPlayer("c", "ccc", "she/her");
-
-function winner(p1, p2) {
-    p1.gameWin();
-    p2.gameLoss();
-}
-
-winner(pA, pB);
-winner(pA, pB);
-winner(pB, pA);
-
-console.log(pA.totalWins());
+    cell.innerText = "X";
+    alert(arrElement);
+})

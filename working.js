@@ -1,3 +1,30 @@
+document.getElementById("zero").addEventListener("click", () => {
+    document.getElementById("zero").innerText = "X";
+})
+document.getElementById("one").addEventListener("click", () => {
+    document.getElementById("one").innerText = "X";
+})
+document.getElementById("two").addEventListener("click", () => {
+    document.getElementById("two").innerText = "X";
+})
+document.getElementById("three").addEventListener("click", () => {
+    document.getElementById("three").innerText = "X";
+})
+document.getElementById("four").addEventListener("click", () => {
+    document.getElementById("four").innerText = "X";
+})
+document.getElementById("five").addEventListener("click", () => {
+    document.getElementById("five").innerText = "X";
+})
+document.getElementById("six").addEventListener("click", () => {
+    document.getElementById("six").innerText = "X";
+})
+document.getElementById("seven").addEventListener("click", () => {
+    document.getElementById("seven").innerText = "X";
+})
+document.getElementById("eight").addEventListener("click", () => {
+    document.getElementById("eight").innerText = "X";
+})
 
 
 function createPlayer(name, password, pronouns) {
@@ -138,5 +165,3 @@ function checkWin(gb, l, tc) {
 function awarding(){
     // stuff
 }
-
-match("a", "b", gameboard, logic);

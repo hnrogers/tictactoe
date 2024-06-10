@@ -1,4 +1,38 @@
 body {
-    background-color: rgb(49, 49, 49);
-    color: aliceblue;
+    background-color: rgb(223, 223, 223);
+    color: rgb(7, 7, 7);
+    font-size: 24px;
+}
+
+.top {
+    border-top: none;
+    border-bottom: solid;
+}
+
+.bottom {
+    border-top: solid;
+    border-bottom: none;
+}
+
+.left {
+    border-left: none;
+    border-right: solid;
+}
+
+.right {
+    border-left: solid;
+    border-right: none;
+}
+
+table {
+    border: 1px solid black;
+    table-layout: fixed;
+}
+
+td {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+
 }

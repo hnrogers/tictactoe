@@ -88,12 +88,9 @@ for (let i = 0; i < 3; i++) {
     - this logic will be assumed for *every* function
 
 
-// win logic function
+// connecting it!
+- 9 squares (flexbox?)
+- click square to do space
+- option to play as guest only at first
 
-- i think a switch statement taking 
-    - playerSelection
-    - logic.[playerSelection]
-
-the loop can be based off how many subarrays there are
-    - check all 3 spots each loop since we know it's 3
-i think this will work and i'll try after lunch
+- set all squares to same class and onclick closest element?

@@ -94,3 +94,58 @@ for (let i = 0; i < 3; i++) {
 - option to play as guest only at first
 
 - set all squares to same class and onclick closest element?
+
+
+> the trigger is click
+
+0. start match button
+1. user clicks square
+    - eventListener
+2. checkAvailability function
+    - continue if taken
+3. new pick space function that
+    - changes value in html table
+    - change value in gameboard.board
+    - no longer need possibleMoves?
+4. starting turn 5, checkWin function
+5. when turn 9 ends, draw if no winner
+6. new awarding function
+
+
+> future improvements
+
+1. create user
+2. check scores
+3. log out user
+
+
+
+
+document.getElementById("zero").addEventListener("click", () => {
+    document.getElementById("zero").innerText = "X";
+})
+document.getElementById("one").addEventListener("click", () => {
+    document.getElementById("one").innerText = "X";
+})
+document.getElementById("two").addEventListener("click", () => {
+    document.getElementById("two").innerText = "X";
+})
+document.getElementById("three").addEventListener("click", () => {
+    document.getElementById("three").innerText = "X";
+})
+document.getElementById("four").addEventListener("click", () => {
+    document.getElementById("four").innerText = "X";
+})
+document.getElementById("five").addEventListener("click", () => {
+    document.getElementById("five").innerText = "X";
+})
+document.getElementById("six").addEventListener("click", () => {
+    document.getElementById("six").innerText = "X";
+})
+document.getElementById("seven").addEventListener("click", () => {
+    document.getElementById("seven").innerText = "X";
+})
+document.getElementById("eight").addEventListener("click", () => {
+    document.getElementById("eight").innerText = "X";
+})
+

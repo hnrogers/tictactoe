@@ -1,3 +1,19 @@
+starting fresh:
+- edit text in player names that changes object.name
+- play button that works
+- match logic
+
+
+lets fucking go
+
+
+
+
+
+
+
+------
+
 match logic
 
 - take turn

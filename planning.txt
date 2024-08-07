@@ -1,11 +1,20 @@
 starting fresh:
-- edit text in player names that changes object.name
-- play button that works
-- match logic
+- using testtest and building out is the plan
+
+what currently works:
+- turn # and turn incrementing
+- place x / o based on turn
+- cannot place x on o, etc
+- start match button disabled during game
 
 
-lets fucking go
+next up?
+- implement win check
 
+after that?
+- implement players 
+- implement score card
+- make it pretty<3 ~*
 
 
 

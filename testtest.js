@@ -27,10 +27,17 @@ document.getElementById("thetable").addEventListener("click", function(e) {
             cell.innerText = turnCount % 2 === 0 ? "O" : "X";
             gameboard.board[arrElement] = turnCount % 2 === 0 ? "O" : "X";
             console.log(gameboard.board[arrElement]);
-            turnCount++;
         }
+
+        if (turnCount >= 5) {
+            nowPlaying = checkWin(gameboard.board, logic.zero, turnCount);
+        }
+        
+        turnCount++;
+        tempStop();
     }
-    tempStop();
+
+    
     /*
     if (turnCount >= 5) {
 
@@ -74,25 +81,39 @@ document.getElementById("startMatch").addEventListener("click", () => { // start
     document.getElementById("startMatch").disabled = true;
 })
 
+
+////////////////////////////////////////////////////////
+
+function checkWin() {
+    letter = turnCount % 2 === 0 ? "O" : "X"; 
+
+    if (gameboard.board[logic.zero[0][0]] === letter && 
+        gameboard.board[logic.zero[0][1]] === letter && 
+        gameboard.board[logic.zero[0][2]] === letter) {
+            alert(letter === "X" ? "Player 1 Wins" : "Player 2 Wins");
+            return false;    // return winner!
+        }
+    return true;   // the game continues
+}
+
+
 function tempStop() { // TEMPORARY
-    if (turnCount > 9) {
+    if (turnCount >= 9 || nowPlaying === false) {
         gameboard.reset();
         turnCount = 0;
         document.getElementById("startMatch").disabled = false;
-        document.getElementsById("zero").innerText = "";
+        nowPlaying = false;
 
-        
-        /*
-        document.getElementsById("zero").innerText = "";
-        document.getElementsById("one").innerText = "";
-        document.getElementsById("two").innerText = "";
-        document.getElementsById("three").innerText = "";
-        document.getElementsById("four").innerText = "";
-        document.getElementsById("five").innerText = "";
-        document.getElementsById("six").innerText = "";
-        document.getElementsById("seven").innerText = "";
-        document.getElementsById("eight").innerText = "";
-        */
+        // make this prettier?
+        document.getElementById("zero").innerText = "";
+        document.getElementById("one").innerText = "";
+        document.getElementById("two").innerText = "";
+        document.getElementById("three").innerText = "";
+        document.getElementById("four").innerText = "";
+        document.getElementById("five").innerText = "";
+        document.getElementById("six").innerText = "";
+        document.getElementById("seven").innerText = "";
+        document.getElementById("eight").innerText = "";
     }
 }
 

@@ -4,12 +4,17 @@ starting fresh:
 what currently works:
 - turn # and turn incrementing
 - place x / o based on turn
+- placing x / o also places on connected array
 - cannot place x on o, etc
 - start match button disabled during game
+- clearing both array and table after win
+- starting a new game after winning (pog)
 
 
 next up?
-- implement win check
+- implement win check for all options
+- fix draw check
+- make it so last move is visible (reset board on play?)
 
 after that?
 - implement players 

@@ -28,73 +28,79 @@ document.getElementById("thetable").addEventListener("click", function(e) {
             gameboard.board[arrElement] = turnCount % 2 === 0 ? "O" : "X";
             console.log(gameboard.board[arrElement]);
         }
-
+    
         if (turnCount >= 5) {
-            nowPlaying = checkWin(gameboard.board, logic.zero, turnCount);
+
+            switch (arrElement) {
+                case 0:
+                    nowPlaying = checkWin(gameboard, logic.zero, turnCount);
+                    break;
+                case 1:
+                    nowPlaying = checkWin(gameboard, logic.one, turnCount);    
+                    break;
+                case 2:
+                    nowPlaying = checkWin(gameboard, logic.two, turnCount);    
+                    break;
+                case 3:
+                    nowPlaying = checkWin(gameboard, logic.three, turnCount);    
+                    break;
+                case 4:
+                    nowPlaying = checkWin(gameboard, logic.four, turnCount);    
+                    break;
+                case 5:
+                    nowPlaying = checkWin(gameboard, logic.five, turnCount);    
+                    break;
+                case 6:
+                    nowPlaying = checkWin(gameboard, logic.six, turnCount);    
+                    break;
+                case 7:
+                    nowPlaying = checkWin(gameboard, logic.seven, turnCount);    
+                    break;
+                case 8:
+                    nowPlaying = checkWin(gameboard, logic.eight, turnCount);    
+                    break;
+            }
         }
-        
-        turnCount++;
         tempStop();
+        turnCount++;
     }
-
-    
-    /*
-    if (turnCount >= 5) {
-
-        switch (arrElement) {
-            case 0:
-                matchEnd = checkWin(gameboard, logic.zero, turnCounter);
-                break;
-            case 1:
-                matchEnd = checkWin(gameboard, logic.one, turnCounter);
-                break;
-            case 2:
-                matchEnd = checkWin(gameboard, logic.two, turnCounter);
-                break;
-            case 3:
-                matchEnd = checkWin(gameboard, logic.three, turnCounter);
-                break;
-            case 4:
-                matchEnd = checkWin(gameboard, logic.four, turnCounter);
-                break;
-            case 5:
-                matchEnd = checkWin(gameboard, logic.five, turnCounter);
-                break;
-            case 6:
-                matchEnd = checkWin(gameboard, logic.six, turnCounter);
-                break;
-            case 7:
-                matchEnd = checkWin(gameboard, logic.seven, turnCounter);
-                break;
-            case 8:
-                matchEnd = checkWin(gameboard, logic.eight, turnCounter);
-                break;
-        }
-    }
-    */
-    
-})
+});
 
 document.getElementById("startMatch").addEventListener("click", () => { // start match stuff
     nowPlaying = true;
     turnCount = 1;
     document.getElementById("startMatch").disabled = true;
-})
+    
+    // make this prettier?
+    document.getElementById("zero").innerText = " ";
+    document.getElementById("one").innerText = " ";
+    document.getElementById("two").innerText = " ";
+    document.getElementById("three").innerText = " ";
+    document.getElementById("four").innerText = " ";
+    document.getElementById("five").innerText = " ";
+    document.getElementById("six").innerText = " ";
+    document.getElementById("seven").innerText = " ";
+    document.getElementById("eight").innerText = " ";
+});
 
 
 ////////////////////////////////////////////////////////
 
-function checkWin() {
-    letter = turnCount % 2 === 0 ? "O" : "X"; 
+function checkWin(gb, l, tc) {
+    letter = tc % 2 === 0 ? "O" : "X"; 
 
-    if (gameboard.board[logic.zero[0][0]] === letter && 
-        gameboard.board[logic.zero[0][1]] === letter && 
-        gameboard.board[logic.zero[0][2]] === letter) {
-            alert(letter === "X" ? "Player 1 Wins" : "Player 2 Wins");
-            return false;    // return winner!
+    for (let i = 0; i < l.length; i++) {
+
+        if (gb.board[l[i][0]] === letter && 
+            gb.board[l[i][1]] === letter && 
+            gb.board[l[i][2]] === letter) {
+                alert(letter === "X" ? "Player 1 Wins" : "Player 2 Wins");
+                return false;    // return winner!
         }
+    }
     return true;   // the game continues
 }
+
 
 
 function tempStop() { // TEMPORARY
@@ -103,20 +109,11 @@ function tempStop() { // TEMPORARY
         turnCount = 0;
         document.getElementById("startMatch").disabled = false;
         nowPlaying = false;
-
-        // make this prettier?
-        document.getElementById("zero").innerText = "";
-        document.getElementById("one").innerText = "";
-        document.getElementById("two").innerText = "";
-        document.getElementById("three").innerText = "";
-        document.getElementById("four").innerText = "";
-        document.getElementById("five").innerText = "";
-        document.getElementById("six").innerText = "";
-        document.getElementById("seven").innerText = "";
-        document.getElementById("eight").innerText = "";
     }
 }
 
+
+// hold
 const logic = (function() {
     const zero = [[0, 1, 2], [0, 4, 8], [0, 3, 6]];
     const one = [[0, 1, 2], [1, 4, 7]];

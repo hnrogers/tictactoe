@@ -9,12 +9,15 @@ what currently works:
 - start match button disabled during game
 - clearing both array and table after win
 - starting a new game after winning (pog)
-- turncount ughh
+- win check for all options
+- draw check
+- final move is visible
 
 
 next up?
-- implement win check for all options
-- fix draw check
+- turncount ughh
+- put everything into functions appropriately
+
 - make it so last move is visible (reset board on play?)
 
 after that?

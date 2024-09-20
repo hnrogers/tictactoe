@@ -14,9 +14,12 @@ what currently works:
 - final move is visible
 - turn count
 
-
 next up?
-- grup things into gameboard and fix redundency
+- player object
+    - update name
+    - score card
+- player profile overlay
+- group things into gameboard and fix redundency
 
 after that?
 - implement players 

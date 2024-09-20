@@ -1,3 +1,4 @@
+
 const logic = (function() { // win conditions
     const zero = [[0, 1, 2], [0, 4, 8], [0, 3, 6]];
     const one = [[0, 1, 2], [1, 4, 7]];
@@ -124,3 +125,31 @@ function checkWin(gb, l) {
 
     return true;   // the game continues
 };
+
+function createPlayer(name, pronouns) {
+    let wins = 0;
+    let losses = 0;
+    let ties = 0;
+    let scorecard = [wins, losses, ties];
+
+    // update scorecard
+    const gameWin = () => scorecard[0]++;
+    const gameLoss = () => scorecard[1]++;
+    const gameTie = () => scorecard[2]++;
+    
+    // show score
+    const totalWins = () => scorecard[0];
+    const totalLosses = () => scorecard[1]; 
+    const totalTies = () => scorecard[2]; 
+
+    return { name, pronouns, 
+            gameWin, gameLoss, gameTie, 
+            totalWins, totalLosses, totalTies };
+}
+
+function updateScorecard() {
+    
+}
+
+const sasha = createPlayer("sasha", "she/her");
+const bruce = createPlayer("bruce", "he/him"); 

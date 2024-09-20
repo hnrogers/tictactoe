@@ -4,6 +4,14 @@ body {
     font-size: 24px;
 }
 
+#player1 {
+    display: none;
+}
+
+#player2 {
+    display: none;
+}
+
 .top {
     border-top: none;
     border-bottom: solid;
